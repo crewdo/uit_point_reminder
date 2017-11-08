@@ -179,18 +179,16 @@ class StudentsController extends AppController
                         <td align='center'>".$key['DiemHP']."</td>
                         </tr> ";
          }
-    }
 
-    echo $head_mess.$mess.$foot_mess;
-
+            $final_mess = $head_mess.$mess.$foot_mess;
 
 
     }
 
 
 
-    // $this->set('messages',$curent_term_info);
-   // $this->set('messages',$student_points);
+
+    }
 
  }
     

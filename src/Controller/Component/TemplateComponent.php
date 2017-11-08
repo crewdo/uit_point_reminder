@@ -13,6 +13,7 @@ class TemplateComponent extends Component {
   <head>
     <meta name='viewport' content='width=device-width' />
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <title>Simple Transactional Email</title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS
@@ -32,7 +33,8 @@ class TemplateComponent extends Component {
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%; }
       table {
-     
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
         width: 100%; }
         table td {
           font-family: sans-serif;
@@ -85,6 +87,19 @@ class TemplateComponent extends Component {
           color: #999999;
           font-size: 12px;
           text-align: center; }
+
+       .jed{
+
+          background: #00c76d;
+          color: white;
+          text-align: center;
+          padding-top: 20px;
+          height: 50px;
+          font-size: 20px;
+
+          font-weight: bold;
+
+       }
       /* -------------------------------------
           TYPOGRAPHY
       ------------------------------------- */
@@ -210,6 +225,20 @@ class TemplateComponent extends Component {
           line-height: inherit !important;
           text-decoration: none !important; }
        }
+
+       .jedtable td {
+       border: 1px solid #32c5d2 !important;
+       padding: 5px;
+
+}
+
+    .jedtable{
+       border-collapse: collapse;
+    }
+    .jedtable th {
+       border: 1px solid #32c5d2 !important;
+       padding: 5px;
+}
     </style>
   </head>
   <body class=''>
@@ -220,26 +249,28 @@ class TemplateComponent extends Component {
           <div class='content'>
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class='preheader'>This is preheader text. Some clients will show this text as a preview.</span>
+            <!-- <span class='preheader'>This is preheader text. Some clients will show this text as a preview.</span> -->
             <table class='main'>
-                  <!-- START MAIN CONTENT AREA -->
+              <tr>
+        <div class = 'jed'>ĐIỂM THI MỚI CỦA BẠN</div>
+      </tr>
+              <!-- START MAIN CONTENT AREA -->
               <tr>
                 <td class='wrapper'>
-                  <table cellpadding='0' cellspacing='0'>
+                  <table cellpadding='0' cellspacing='0' class=''>
                     <tr>
                       <td>
-                        <p>Hi there,</p>
-                        <p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
-                        <table class='btn btn-primary'>
+                        <p>Chào bạn, bạn vừa có điểm thi mới cập nhật trên hệ thống, đây là bảng điểm mới của bạn trong học kỳ này! Hi vọng đây là tin tốt đối với bạn!</p>
+                        <table class='jedtable'>
                           <tbody>
                       <tr>
-                    <th>Mã HP</th>
-                    <th>Tên HP</th>
+                        <th>Mã HP</th>
+                        <th>Tên HP</th>
                     <th>Điểm QT</th>
                     <th>Điểm GK</th>
                     <th>Điểm TH</th>
                     <th>Điểm CK</th>
-                    <th>Điểm HP</th>
+                  <th>Điểm HP</th>
                       </tr>";
 
             return $head;
@@ -249,7 +280,8 @@ class TemplateComponent extends Component {
 
             $foot = "</tbody>
                         </table>
-                       
+                    
+               
                       </td>
                     </tr>
                   </table>
@@ -257,18 +289,19 @@ class TemplateComponent extends Component {
               </tr>
             <!-- END MAIN CONTENT AREA -->
             </table>
+
             <!-- START FOOTER -->
             <div class='footer'>
               <table border='0' cellpadding='0' cellspacing='0'>
                 <tr>
                   <td class='content-block'>
-                    <span class='apple-link'>Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
-                    <br> Don't like these emails? <a href='http://i.imgur.com/CScmqnj.gif'>Unsubscribe</a>.
+                    <span class='apple-link'>Jed UIT, Email được gửi từ http://uiter.xyz</span>
+                    <br>Ngừng nhận email này?<a href='https://facebook.com/jeduit' targer='_blank'> Click</a>
                   </td>
                 </tr>
                 <tr>
                   <td class='content-block powered-by'>
-                    Powered by <a href='http://htmlemail.io'>HTMLemail</a>.
+                    Bản quyền bởi <a href='https://facebook.com/jeduit' targer='_blank'>Jed UIT</a>
                   </td>
                 </tr>
               </table>
