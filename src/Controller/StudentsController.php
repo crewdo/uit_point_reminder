@@ -2,7 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Http\Client;
+use Cake\Event\Event;
+use Cake\Http\Response;
 /**
  * Students Controller
  *
@@ -108,4 +110,44 @@ class StudentsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+     public function showPoint(){
+
+    $this->viewBuilder()->layout('');
+
+        $http = new Client([
+      'host' => 'daa.uit.edu.vn',
+      'scheme' => 'https',
+      'ssl_verify_peer' => false,
+      'ssl_verify_depth' => false,
+      'ssl_verify_host' => false
+
+    ]);
+    $respone = $http->post('/sinhvien/kqhoctap',[ 'name' => '14520928', 'pass' => '231084258', 'form_build_id'=>'', 'form_id' => 'user_login_block' ]);
+    $respone = $http->get('/sinhvien/kqhoctap')->body();
+
+    // $term = $this->Jed->getTerm();
+
+    // $result = "<style> table, td {border: 1px solid black; } </style> <table>".$result."</table>";
+
+    // $term = $this->takeString('<strong>&nbsp;&nbsp;&nbsp;', '</strong>', $result);
+
+    // $arr = array();
+    
+
+    $curent_term_info = $this->Point->getTermInfo($respone);
+    // $curent_term_info =  json_encode( $text, JSON_UNESCAPED_UNICODE );
+
+    // $curent_term_info = "hehehe";
+
+    //$result = implode(glue, pieces)
+    // $result = json_encode($result);
+
+    //$a = $this->Jed->jsonEncodeArray($curent_term_info);
+    $this->set('messages',$curent_term_info);
+
+ }
+    
+
+
 }
