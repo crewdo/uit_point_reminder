@@ -22,7 +22,7 @@ class PointComponent extends Component {
                 $term ='';
                 $month = date('m');
 
-                  if($month > 10) //$month >=10
+                  if($month > 10)
                   {
                      $term = "Học kỳ 1 - Năm học 20".date('y')."-20".date('y', strtotime('+1 year'));
 
@@ -40,6 +40,8 @@ class PointComponent extends Component {
                     $term = "Học kỳ 3 - Năm học 20".date('y', strtotime('-1 year'))."-20".date('y');
                   }
 
+                $term = "Học kỳ 2 - Năm học 2016-2017";
+
                   return $term;
                      
 
@@ -49,11 +51,19 @@ class PointComponent extends Component {
 
 
          // $string_to_start = '<tr><td colspan="10"><strong>&nbsp;&nbsp;&nbsp;'.$this->getTerm();
-         $string_to_start = 'Học kỳ 1 - Năm học 2015-2016'; //Thay bằng 
+         $string_to_start = $this->getTerm(); //Thay bằng 
 
          $string_end = "<tr><td align='center'>&nbsp;</td><td align='center'>&nbsp;</td><td>&nbsp;<strong>Trung bình học kỳ";
          $res = $this->takeString($string_to_start,$string_end,$respone); //trích xuất chuỗi cần Lấy
-         $res = str_replace("Học kỳ 1 - Năm học 2015-2016 </strong></td></tr><tr>", "", $res);
+
+         if($res == null){
+
+			return "Hiện tại chưa có dữ liệu";
+
+         }
+        
+         $string_to_start .= " </strong></td></tr><tr>";
+         $res = str_replace($string_to_start, "", $res);
 
          $arr = explode('</tr><tr>', $res); //Chuyển về mảng để xử lý
 	
@@ -108,9 +118,6 @@ class PointComponent extends Component {
                   $del_head_arr = array_shift($arr_one_ok[$i]);
 
               }
-
-            
-
 
         //   //Kết quả vừa xử lý được:
 
@@ -170,7 +177,7 @@ class PointComponent extends Component {
          
         }
 
-         return   $this->getTerm();
+         return $arr_one_ok;
         
       }
 

@@ -5,6 +5,7 @@ use App\Controller\AppController;
 use Cake\Http\Client;
 use Cake\Event\Event;
 use Cake\Http\Response;
+
 /**
  * Students Controller
  *
@@ -123,28 +124,56 @@ class StudentsController extends AppController
       'ssl_verify_host' => false
 
     ]);
-    $respone = $http->post('/sinhvien/kqhoctap',[ 'name' => '14520928', 'pass' => '231084258', 'form_build_id'=>'', 'form_id' => 'user_login_block' ]);
+
+    $student_points = $this->Students->find();
+
+    foreach ($student_points as $student_point) {
+
+    $respone = $http->post('/sinhvien/kqhoctap',[ 'name' => $student_point->student_code, 'pass' => base64_decode($student_point->student_password), 'form_build_id'=>'', 'form_id' => 'user_login_block' ]);
+
     $respone = $http->get('/sinhvien/kqhoctap')->body();
 
-    // $term = $this->Jed->getTerm();
-
-    // $result = "<style> table, td {border: 1px solid black; } </style> <table>".$result."</table>";
-
-    // $term = $this->takeString('<strong>&nbsp;&nbsp;&nbsp;', '</strong>', $result);
-
-    // $arr = array();
-    
 
     $curent_term_info = $this->Point->getTermInfo($respone);
-    // $curent_term_info =  json_encode( $text, JSON_UNESCAPED_UNICODE );
 
-    // $curent_term_info = "hehehe";
+    $respone = $http->post('/user/logout');
 
-    //$result = implode(glue, pieces)
-    // $result = json_encode($result);
+    if(is_array($curent_term_info) == false)
+    {
+        //Trường hợp này chưa có điểm cho học kì hiện tại, $current_term_info đang là string: "Hiện tại chưa có dữ liệu"
+        exit;
+    }
+    $point = '';
+    foreach ($curent_term_info as $key) {
+         $point .= $key['MaHp'];
+         $point .= $key['TenHp'];
+         $point .= $key['TinChi'];
+         $point .= $key['QT'];
+         $point .= $key['GK'];
+         $point .= $key['TH'];
+         $point .= $key['CK'];
+         $point .= $key['DiemHP'];
+         $point .= $key['GhiChu'];
+    }
 
-    //$a = $this->Jed->jsonEncodeArray($curent_term_info);
-    $this->set('messages',$curent_term_info);
+    //Xử lý nếu point có thay đổi thì lưu thông tin và gửi mail
+    if($point != $student_point->student_html_point){
+
+        $new_point = $this->Students->get($student_point->id);
+        $new_point->student_html_point = $point;
+        $this->Students->save($new_point);
+        
+
+    }
+
+
+
+    }
+
+
+
+    // $this->set('messages',$curent_term_info);
+   // $this->set('messages',$student_points);
 
  }
     
