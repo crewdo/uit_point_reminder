@@ -5,6 +5,7 @@ use App\Controller\AppController;
 use Cake\Http\Client;
 use Cake\Event\Event;
 use Cake\Http\Response;
+use Cake\Mailer\Email;
 
 /**
  * Students Controller
@@ -180,7 +181,16 @@ class StudentsController extends AppController
                         </tr> ";
          }
 
-            $final_mess = $head_mess.$mess.$foot_mess;
+        $final_mess = $head_mess.$mess.$foot_mess;
+
+         $email = new Email();
+         $email->transport('gmail3');
+         $subject='Điểm thi cập nhật ngày '.date('d-m-Y');
+         $email->from(['ngoclazy719@gmail.com' => 'Jed UIT'])
+              ->to($student_point->student_email)
+              ->setHeaders(['Content-type' => 'text/html'])
+              ->subject($subject)                  
+              ->send($final_mess);
 
 
     }
