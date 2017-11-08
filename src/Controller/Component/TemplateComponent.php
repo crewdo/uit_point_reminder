@@ -1,9 +1,18 @@
-<!doctype html>
+<?php
+namespace App\Controller\Component;
+
+use Cake\Controller\Component;
+use Cake\Controller\Controller;
+
+class TemplateComponent extends Component {
+
+     public function emailHead(){
+
+  $head = "<!doctype html>
 <html>
   <head>
     <meta name='viewport' content='width=device-width' />
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-    <title>Simple Transactional Email</title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS
@@ -23,8 +32,7 @@
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%; }
       table {
-        mso-table-lspace: 0pt;
-        mso-table-rspace: 0pt;
+     
         width: 100%; }
         table td {
           font-family: sans-serif;
@@ -214,87 +222,34 @@
             <!-- START CENTERED WHITE CONTAINER -->
             <span class='preheader'>This is preheader text. Some clients will show this text as a preview.</span>
             <table class='main'>
-
-              <!-- START MAIN CONTENT AREA -->
+                  <!-- START MAIN CONTENT AREA -->
               <tr>
                 <td class='wrapper'>
                   <table cellpadding='0' cellspacing='0'>
                     <tr>
                       <td>
-                        <div class = "jed">Có điểm thi!</div>
-                        <p>Chào bạn, bạn vừa có điểm thi mới cập nhật trên hệ thống, đây là bảng điểm mới của bạn trong học kỳ này! Hihi</p>
+                        <p>Hi there,</p>
+                        <p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
                         <table class='btn btn-primary'>
                           <tbody>
                       <tr>
-                      	<th>Mã HP</th>
-                      	<th>Tên HP</th>
-           			    <th>Điểm QT</th>
-           			    <th>Điểm GK</th>
-           			    <th>Điểm TH</th>
-           			    <th>Điểm CK</th>
-            			<th>Điểm HP</th>
-                      </tr>
-                      <tr>
-                      	<td align='center'>IT001</td>
-                      	<td>Nhập môn lập trình</td>
-                      	<td align='center'>4</td>
-                        <td align='center'>0</td>
-                        <td align='center'>10</td>
-                        <td align='center'>5</td>
-                        <td align='center'>6.5</td>
-                        </tr>
+                    <th>Mã HP</th>
+                    <th>Tên HP</th>
+                    <th>Điểm QT</th>
+                    <th>Điểm GK</th>
+                    <th>Điểm TH</th>
+                    <th>Điểm CK</th>
+                    <th>Điểm HP</th>
+                      </tr>";
 
-                            <tr>
-                      	<td align='center'>IT001</td>
-                      	<td>Nhập môn lập trình</td>
-                      	<td align='center'>4</td>
-                        <td align='center'>0</td>
-                        <td align='center'>10</td>
-                        <td align='center'>5</td>
-                        <td align='center'>6.5</td>
-                        </tr>
+            return $head;
 
+}
+  public function emailFoot(){
 
-    <tr>
-                      	<td align='center'>IT001</td>
-                      	<td>Nhập môn lập trình</td>
-                      	<td align='center'>4</td>
-                        <td align='center'>0</td>
-                        <td align='center'>10</td>
-                        <td align='center'>5</td>
-                        <td align='center'>6.5</td>
-                        </tr>
-
-
-    <tr>
-                      	<td align='center'>IT001</td>
-                      	<td>Nhập môn lập trình</td>
-                      	<td align='center'>4</td>
-                        <td align='center'>0</td>
-                        <td align='center'>10</td>
-                        <td align='center'>5</td>
-                        <td align='center'>6.5</td>
-                        </tr>
-
-
-    <tr>
-                      	<td align='center'>IT001</td>
-                      	<td>Nhập môn lập trình</td>
-                      	<td align='center'>4</td>
-                        <td align='center'>0</td>
-                        <td align='center'>10</td>
-                        <td align='center'>5</td>
-                        <td align='center'>6.5</td>
-                        </tr>
-
-
-
-
-                    
-                          </tbody>
+            $foot = "</tbody>
                         </table>
-                    
-               
+                       
                       </td>
                     </tr>
                   </table>
@@ -302,7 +257,6 @@
               </tr>
             <!-- END MAIN CONTENT AREA -->
             </table>
-
             <!-- START FOOTER -->
             <div class='footer'>
               <table border='0' cellpadding='0' cellspacing='0'>
@@ -328,4 +282,9 @@
       </tr>
     </table>
   </body>
-</html>
+</html>";
+
+  return $foot;
+  } 
+                      
+}

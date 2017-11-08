@@ -157,6 +157,9 @@ class StudentsController extends AppController
     }
 
     //Xử lý nếu point có thay đổi thì lưu thông tin và gửi mail
+    $head_mess = $this->Template->emailHead();
+    $foot_mess = $this->Template->emailFoot();
+    $mess ="";
     if($point != $student_point->student_html_point){
 
         $new_point = $this->Students->get($student_point->id);
@@ -164,7 +167,21 @@ class StudentsController extends AppController
         $this->Students->save($new_point);
         
 
+         foreach ($curent_term_info as $key) {
+
+            $mess .= "<tr>
+                        <td align='center'>".$key['MaHp']."</td>
+                        <td>".$key['TenHp']."</td>
+                        <td align='center'>".$key['QT']."</td>
+                        <td align='center'>".$key['GK']."</td>
+                        <td align='center'>".$key['TH']."</td>
+                        <td align='center'>".$key['CK']."</td>
+                        <td align='center'>".$key['DiemHP']."</td>
+                        </tr> ";
+         }
     }
+
+    echo $head_mess.$mess.$foot_mess;
 
 
 
