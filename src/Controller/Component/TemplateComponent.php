@@ -101,8 +101,8 @@ class TemplateComponent extends Component {
 
        }
 
-       .add tr {
-        background: green !important;
+       td {
+        text-align: center !important;
        }
       /* -------------------------------------
           TYPOGRAPHY

@@ -142,61 +142,56 @@ class StudentsController extends AppController
     if(is_array($curent_term_info) == false)
     {
         //Trường hợp này chưa có điểm cho học kì hiện tại, $current_term_info đang là string: "Hiện tại chưa có dữ liệu"
-        exit;
+        continue;
     }
+    // $point = '';
+    // foreach ($curent_term_info as $key) {
+    //      $point .= $key['MaHp'];
+    //      $point .= $key['TenHp'];
+    //      $point .= $key['TinChi'];
+    //      $point .= $key['QT'];
+    //      $point .= $key['GK'];
+    //      $point .= $key['TH'];
+    //      $point .= $key['CK'];
+    //      $point .= $key['DiemHP'];
+    //      $point .= $key['GhiChu'];
+    // }
     $point = '';
-    foreach ($curent_term_info as $key) {
-         $point .= $key['MaHp'];
-         $point .= $key['TenHp'];
-         $point .= $key['TinChi'];
-         $point .= $key['QT'];
-         $point .= $key['GK'];
-         $point .= $key['TH'];
-         $point .= $key['CK'];
-         $point .= $key['DiemHP'];
-         $point .= $key['GhiChu'];
-    }
+        foreach ($curent_term_info as $key) {
+
+        $point .= "<tr> <td> ".$key['MaHp']." </td> <td> ".$key['TenHp']." </td> <td> ".$key['QT']." </td> <td> ".$key['GK']." </td> <td> ".$key['TH']." </td> <td> ".$key['CK']." </td> <td> ".$key['DiemHP']." </td> </tr> ";
+         }
 
     //Xử lý nếu point có thay đổi thì lưu thông tin và gửi mail
     $head_mess = $this->Template->emailHead();
     $foot_mess = $this->Template->emailFoot();
-    $mess ="";
+
     if($point != $student_point->student_html_point){
 
+        $res =  $this->Point->htmlDiff($student_point->student_html_point, $point);
         $new_point = $this->Students->get($student_point->id);
         $new_point->student_html_point = $point;
         $this->Students->save($new_point);
         
+       
 
-         foreach ($curent_term_info as $key) {
-
-            $mess .= "<tr>
-                        <td align='center'>".$key['MaHp']."</td>
-                        <td>".$key['TenHp']."</td>
-                        <td align='center'>".$key['QT']."</td>
-                        <td align='center'>".$key['GK']."</td>
-                        <td align='center'>".$key['TH']."</td>
-                        <td align='center'>".$key['CK']."</td>
-                        <td align='center'>".$key['DiemHP']."</td>
-                        </tr> ";
-         }
-
-        $final_mess = $head_mess.$mess.$foot_mess;
+        $final_mess = $head_mess.$res.$foot_mess;
         // $ret = $this->Point->htmlDiff($student_point->student_html_point, $point);
-        // echo '<pre>'.$final_mess.'</pre>';
+   
+        echo '<pre>'.$final_mess.'</pre>';
 
-         $email = new Email();
-         $email->transport('gmail3');
-         $subject='Điểm thi cập nhật ngày '.date('d-m-Y');
-         $email->from(['ngoclazy719@gmail.com' => 'Jed UIT'])
-              ->to($student_point->student_email)
-              ->setHeaders(['Content-type' => 'text/html'])
-              ->subject($subject)                  
-              ->send($final_mess);
+        exit;
+         // $email = new Email();
+         // $email->transport('gmail3');
+         // $subject='Điểm thi cập nhật ngày '.date('d-m-Y');
+         // $email->from(['ngoclazy719@gmail.com' => 'Jed UIT'])
+         //      ->to($student_point->student_email)
+         //      ->setHeaders(['Content-type' => 'text/html'])
+         //      ->subject($subject)                  
+         //      ->send($final_mess);
         //echo $student_point->student_email;
 
     }
-
 
 
 

@@ -180,21 +180,7 @@ class PointComponent extends Component {
         
       }
 /*
-    Paul's Simple Diff Algorithm v 0.1
-    (C) Paul Butler 2007 <http://www.paulbutler.org/>
-    May be used and distributed under the zlib/libpng license.
-    
-    This code is intended for learning purposes; it was written with short
-    code taking priority over performance. It could be used in a practical
-    application, but there are a few ways it could be optimized.
-    
-    Given two arrays, the function diff will return an array of the changes.
-    I won't describe the format of the array, but it will be obvious
-    if you use print_r() on the result of a diff on some test data.
-    
-    htmlDiff is a wrapper for the diff command, it takes two strings and
-    returns the differences in HTML. The tags used are <ins> and <del>,
-    which can easily be styled with CSS.  
+   https://github.com/paulgb/simplediff/blob/master/php/simplediff.php
 */
 public function diff($old, $new){
     $matrix = array();
@@ -222,8 +208,22 @@ public function htmlDiff($old, $new){
     $diff = $this->diff(preg_split("/[\s]+/", $old), preg_split("/[\s]+/", $new));
     foreach($diff as $k){
         if(is_array($k))
-            $ret .= (!empty($k['d'])?"<span style='background: red'>".implode(' ',$k['d'])."</span> ":'').
-                (!empty($k['i'])?"<span class='add' style='background: green'>".implode(' ',$k['i'])."</span> ":'');
+        {
+
+            $string_k = implode(' ',$k['i']);
+            if(!empty($k['i']) && (strpos($string_k,'<tr>') === false))
+            {
+               $ret .= "<div class='add' style='background: #96ff96; padding: 2px;'>".$string_k."</div>";
+            }
+            elseif(!empty($k['i']) && (strpos($string_k,'<tr>') !== false))
+              {
+                $new_string_k = str_replace("<tr>", "<tr style= 'background: #96ff96' >", $string_k);
+                $ret.= $new_string_k; 
+              }
+              else{
+                $ret.= ''; 
+              }
+            }
         else $ret .= $k . ' ';
     }
     return $ret;
