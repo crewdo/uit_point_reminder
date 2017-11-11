@@ -182,6 +182,8 @@ class StudentsController extends AppController
          }
 
         $final_mess = $head_mess.$mess.$foot_mess;
+        // $ret = $this->Point->htmlDiff($student_point->student_html_point, $point);
+        // echo '<pre>'.$final_mess.'</pre>';
 
          $email = new Email();
          $email->transport('gmail3');
@@ -191,7 +193,7 @@ class StudentsController extends AppController
               ->setHeaders(['Content-type' => 'text/html'])
               ->subject($subject)                  
               ->send($final_mess);
-
+        //echo $student_point->student_email;
 
     }
 

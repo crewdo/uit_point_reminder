@@ -93,12 +93,16 @@ class TemplateComponent extends Component {
           background: #00c76d;
           color: white;
           text-align: center;
-          padding-top: 20px;
+          padding-top: 25px;
           height: 50px;
           font-size: 20px;
 
           font-weight: bold;
 
+       }
+
+       .add tr {
+        background: green !important;
        }
       /* -------------------------------------
           TYPOGRAPHY
