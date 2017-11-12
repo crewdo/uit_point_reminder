@@ -126,6 +126,9 @@ class StudentsController extends AppController
 
     ]);
 
+      
+
+
     $student_points = $this->Students->find();
 
     foreach ($student_points as $student_point) {
@@ -144,18 +147,6 @@ class StudentsController extends AppController
         //Trường hợp này chưa có điểm cho học kì hiện tại, $current_term_info đang là string: "Hiện tại chưa có dữ liệu"
         continue;
     }
-    // $point = '';
-    // foreach ($curent_term_info as $key) {
-    //      $point .= $key['MaHp'];
-    //      $point .= $key['TenHp'];
-    //      $point .= $key['TinChi'];
-    //      $point .= $key['QT'];
-    //      $point .= $key['GK'];
-    //      $point .= $key['TH'];
-    //      $point .= $key['CK'];
-    //      $point .= $key['DiemHP'];
-    //      $point .= $key['GhiChu'];
-    // }
     $point = '';
         foreach ($curent_term_info as $key) {
 
@@ -166,6 +157,11 @@ class StudentsController extends AppController
     $head_mess = $this->Template->emailHead();
     $foot_mess = $this->Template->emailFoot();
 
+
+     // $res =  $this->Point->htmlDiff(" à à à à á ạ ả ã â ầ ấ ậ ẩ ẫ ă  ằ ắ ặ ẳ ẵ è é ẹ ẻ ẽ ê ề ế ệ ể ễ ì í ị ỉ ĩ ò ó ọ ỏ õ ô ồ ố ộ ổ ỗ ơ ờ ớ ợ ở ỡ ù ú ụ ủ ũ ư ừ ứ ự ử ữ ỳ ý ỵ ỷ ỹ đ À Á Ạ Ả Ã Â Ầ Ấ Ậ Ẩ Ẫ Ă Ằ Ắ Ặ Ẳ Ẵ È É Ẹ Ẻ Ẽ Ê Ề Ế Ệ Ể Ễ Í Ị Ỉ Ĩ Ò Ó Ọ Ỏ Õ Ô Ồ Ố Ộ Ổ Ỗ Ơ Ờ Ớ Ợ Ở Ỡ Ù Ú Ụ Ủ Ũ Ư Ừ Ứ Ự Ử Ữ Ỳ Ý Ỵ Ỷ Ỹ Đ", "à à à à á ạ ả ã â ầ ấ ậ ẩ ẫ ă  ằ ắ ặ ẳ ẵ è é ẹ ẻ ẽ ê ề ế ệ ể ễ ì í ị ỉ ĩ ò ó ọ ỏ õ ô ồ ố ộ ổ ỗ ơ ờ ớ ợ ở ỡ ù ú ụ ủ ũ ư ừ ứ ự ử ữ ỳ ý ỵ ỷ ỹ đ À Á Ạ Ả Ã Â Ầ Ấ Ậ Ẩ Ẫ Ă Ằ Ắ Ặ Ẳ Ẵ È É Ẹ Ẻ Ẽ Ê Ề Ế Ệ Ể Ễ Í Ị Ỉ Ĩ Ò Ó Ọ Ỏ Õ Ô Ồ Ố Ộ Ổ Ỗ Ơ Ờ Ớ Ợ Ở Ỡ Ù Ú Ụ Ủ Ũ Ư Ừ Ứ Ự Ử Ữ Ỳ Ý Ỵ Ỷ Ỹ Đ hehe");
+
+        // print  "<pre>".$res."</pre>";
+
     if($point != $student_point->student_html_point){
 
         $res =  $this->Point->htmlDiff($student_point->student_html_point, $point);
@@ -174,13 +170,11 @@ class StudentsController extends AppController
         $this->Students->save($new_point);
         
        
-
         $final_mess = $head_mess.$res.$foot_mess;
-        // $ret = $this->Point->htmlDiff($student_point->student_html_point, $point);
+        $ret = $this->Point->htmlDiff($student_point->student_html_point, $point);
    
-        echo '<pre>'.$final_mess.'</pre>';
-
-        exit;
+       echo '<pre>'.$final_mess.'</pre>';
+       
          // $email = new Email();
          // $email->transport('gmail3');
          // $subject='Điểm thi cập nhật ngày '.date('d-m-Y');

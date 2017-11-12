@@ -204,6 +204,9 @@ public function diff($old, $new){
         $this->diff(array_slice($old, $omax + $maxlen), array_slice($new, $nmax + $maxlen)));
 }
 public function htmlDiff($old, $new){
+
+    $old = str_replace("à", "a", $old);
+    $new = str_replace("à", "a", $new);
     $ret = '';
     $diff = $this->diff(preg_split("/[\s]+/", $old), preg_split("/[\s]+/", $new));
     foreach($diff as $k){
@@ -213,11 +216,14 @@ public function htmlDiff($old, $new){
             $string_k = implode(' ',$k['i']);
             if(!empty($k['i']) && (strpos($string_k,'<tr>') === false))
             {
+
                $ret .= "<div class='add' style='background: #96ff96; padding: 2px;'>".$string_k."</div>";
+
             }
             elseif(!empty($k['i']) && (strpos($string_k,'<tr>') !== false))
               {
                 $new_string_k = str_replace("<tr>", "<tr style= 'background: #96ff96' >", $string_k);
+           
                 $ret.= $new_string_k; 
               }
               else{
