@@ -101,6 +101,10 @@ class TemplateComponent extends Component {
 
        }
 
+       .center {
+        text-align: left !important;
+       }
+
        td {
         text-align: center !important;
        }
@@ -263,7 +267,7 @@ class TemplateComponent extends Component {
                 <td class='wrapper'>
                   <table cellpadding='0' cellspacing='0' class=''>
                     <tr>
-                      <td>
+                      <td class='center'>
                         <p>Chào bạn, bạn vừa có điểm thi mới cập nhật trên hệ thống, đây là bảng điểm mới của bạn trong học kỳ này! Hi vọng đây là tin tốt đối với bạn!</p>
                         <table class='jedtable'>
                           <tbody>
