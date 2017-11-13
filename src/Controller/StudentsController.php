@@ -76,19 +76,19 @@ class StudentsController extends AppController
         
        
         $final_mess = $head_mess.$res.$foot_mess;
-        $ret = $this->Point->htmlDiff($student_point->student_html_point, $point);
+       // $ret = $this->Point->htmlDiff($student_point->student_html_point, $point);
    
-       echo '<pre>'.$final_mess.'</pre>';
+       //echo '<pre>'.$final_mess.'</pre>';
        
-         // $email = new Email();
-         // $email->transport('gmail3');
-         // $subject='Điểm thi cập nhật ngày '.date('d-m-Y');
-         // $email->from(['ngoclazy719@gmail.com' => 'Jed UIT'])
-         //      ->to($student_point->student_email)
-         //      ->setHeaders(['Content-type' => 'text/html'])
-         //      ->subject($subject)                  
-         //      ->send($final_mess);
-        //echo $student_point->student_email;
+         $email = new Email();
+         $email->transport('gmail3');
+         $subject='Điểm thi cập nhật ngày '.date('d-m-Y');
+         $email->from(['ngoclazy719@gmail.com' => 'Jed UIT'])
+              ->to($student_point->student_email)
+              ->setHeaders(['Content-type' => 'text/html'])
+              ->subject($subject)                  
+              ->send($final_mess);
+     //   echo $student_point->student_email;
 
     }
 

@@ -29,20 +29,20 @@ class HomesController extends AppController
      */
     public function index()
     {
-        $this->viewBuilder()->layout('');
-        $this->loadModel('Students');
-        $student = $this->Students->newEntity();
-        if ($this->request->is('post')) {
-            $student = $this->Students->patchEntity($student, $this->request->getData());
-            if ($this->Students->save($student)) {
-                $this->Flash->success(__('The student has been saved.'));
+        $this->viewBuilder()->layout('home');
+        // $this->loadModel('Students');
+        // $student = $this->Students->newEntity();
+        // if ($this->request->is('post')) {
+        //     $student = $this->Students->patchEntity($student, $this->request->getData());
+        //     if ($this->Students->save($student)) {
+        //         $this->Flash->success(__('The student has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The student could not be saved. Please, try again.'));
-        }
-        $this->set(compact('student'));
-        $this->set('_serialize', ['student']);
+        //         return $this->redirect(['action' => 'index']);
+        //     }
+        //     $this->Flash->error(__('The student could not be saved. Please, try again.'));
+        // }
+        // $this->set(compact('student'));
+        // $this->set('_serialize', ['student']);
     }
 
     /**
