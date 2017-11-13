@@ -82,10 +82,10 @@
 						<form id="contact-form">
 						<div class="row marginbot-20">
 							<div class="col-md-6 xs-marginbot-20">
-								<input type="text" class="form-control input-lg" id="massv" placeholder="Nhập MSSV" required="required" />
+								<input type="text" name="mssv" class="form-control input-lg" id="mssv" placeholder="Nhập MSSV" required="required" />
 							</div>
 							<div class="col-md-6">
-								<input type="password" class="form-control input-lg" id="password" placeholder="Nhập mật khẩu" required="required" />
+								<input type="password" name="password" class="form-control input-lg" id="password" placeholder="Nhập mật khẩu" required="required" />
 							</div>
 						</div>
 						<div class="row">

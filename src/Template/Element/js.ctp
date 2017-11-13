@@ -8,7 +8,7 @@
             '/home/js/stellar.js',
             '/home/js/nivo-lightbox.min.js',
             '/home/js/custom.js',
-            '/home/js/css3-animate-it.js'
+            '/home/js/css3-animate-it.js'	
 
  )); ?>
 
