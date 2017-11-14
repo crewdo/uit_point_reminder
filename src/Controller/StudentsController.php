@@ -47,7 +47,7 @@ class StudentsController extends AppController
             //Sendmail
                $fail_head_mess = $this->Template->failMess();
                $fail_foot_mess = $this->Template->emailFoot();
-               $fail_mess = $fail_head_mess."<div style = 'margin-top: 20px; margin-bottom: 20px; line-height: 150%'><b>Có vẻ như bạn đã thay đổi mật khẩu trên Daa rồi, hãy nhấp vào <a href=http://uiter.xyz/reupdate-password/?student_code=".$student_point->student_code."><ins style='color: #6382bd'>đây<ins></a> để cập nhật lại mật khẩu cho hệ thống thông báo điểm. Cám ơn bạn!</b></div>".$fail_foot_mess;
+               $fail_mess = $fail_head_mess."<div style = 'margin-top: 20px; margin-bottom: 20px; line-height: 150%'><b>Có vẻ như bạn đã thay đổi mật khẩu trên Daa rồi, hãy nhấp vào <a href='http://uiter.xyz/reupdate-password/?student_code=".$student_point->student_code."&student_email=".$student_point->student_email."'><ins style='color: #6382bd'>đây<ins></a> để cập nhật lại mật khẩu cho hệ thống thông báo điểm. Cám ơn bạn!</b></div>".$fail_foot_mess;
                $email = new Email();
                $email->transport('gmail3');
                $subject='Đăng nhập thất bại '.date('d-m-Y');

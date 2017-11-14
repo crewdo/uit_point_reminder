@@ -256,26 +256,26 @@
 		<div class="container">
 
         <div class="row animatedParent">
-            <div class="col-xs-6 col-sm-4 col-md-4">
+            <div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="animated rotateInDownLeft">
-                <div class="service-box">
+                <div class="service-box jmarginbot50">
 					<div class="service-icon">
 						<span class="fa fa-laptop fa-2x"></span> 
 					</div>
 					<div class="service-desc">						
-						<h5>Web Design</h5>
+						<!-- <h5>Web Design</h5> -->
 						<div class="divider-header"></div>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
+						<img src="/point/home/img/register.jpg" width="100%">
 						<a href="#" class="btn btn-skin">Learn more</a>
 					</div>
                 </div>
 				</div>
             </div>
-			<div class="col-xs-6 col-sm-4 col-md-4">
+        </div>
+         <div class="row animatedParent">
+			<div class="col-xs-12 col-sm-12 col-md-12 ">
 				<div class="animated rotateInDownLeft slow">
-                <div class="service-box">
+                <div class="service-box jmarginbot50">
 					<div class="service-icon">
 						<span class="fa fa-camera fa-2x"></span> 
 					</div>
@@ -290,7 +290,9 @@
                 </div>
 				</div>
             </div>
-			<div class="col-xs-6 col-sm-4 col-md-4">
+        </div>
+         <div class="row animatedParent">
+			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="animated rotateInDownLeft slower">
                 <div class="service-box">
 					<div class="service-icon">
@@ -307,6 +309,7 @@
                 </div>
 				</div>
             </div>
+        </div>
 
         </div>		
 		</div>

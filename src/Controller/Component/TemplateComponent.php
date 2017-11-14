@@ -95,7 +95,7 @@ class TemplateComponent extends Component {
   <head>
     <meta name='viewport' content='width=device-width' />
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-    <title>Simple Transactional Email</title>".$style."
+    <title>Đăng ký thành công</title>".$style."
   </head>
   <body class=''>
     <table cellpadding='0' cellspacing='0' class='body'>
@@ -103,12 +103,9 @@ class TemplateComponent extends Component {
         <td>&nbsp;</td>
         <td class='container'>
           <div class='content'>
-
-            <!-- START CENTERED WHITE CONTAINER -->
-            <!-- <span class='preheader'>This is preheader text. Some clients will show this text as a preview.</span> -->
             <table class='main'>
               <tr>
-        <div class = 'jed'>ĐĂNG KÍ THÀNH CÔNG</div>
+        <div class = 'jed jed-register'>ĐĂNG KÝ THÀNH CÔNG</div>
       </tr>";
       return $head;
     }
@@ -131,12 +128,9 @@ class TemplateComponent extends Component {
         <td>&nbsp;</td>
         <td class='container'>
           <div class='content'>
-
-            <!-- START CENTERED WHITE CONTAINER -->
-            <!-- <span class='preheader'></span> -->
             <table class='main'>
               <tr>
-        <div class = 'jed'>CẬP NHẬT LẠI MẬT KHẨU</div>
+        <div class = 'jed jed-reupdate'>CẬP NHẬT LẠI MẬT KHẨU</div>
       </tr>";
       return $head;
     }
@@ -211,7 +205,7 @@ class TemplateComponent extends Component {
 
        .jed{
 
-          background: #ff5f5f;
+          background: #00c76d;
           color: white;
           text-align: center;
           padding-top: 25px;
@@ -219,6 +213,18 @@ class TemplateComponent extends Component {
           font-size: 20px;
 
           font-weight: bold;
+
+       }
+
+         .jed-reupdate{
+
+          background: #ff5f5f;
+
+       }
+
+        .jed-register{
+
+          background: #3cbcfb;
 
        }
 
