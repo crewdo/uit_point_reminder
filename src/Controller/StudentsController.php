@@ -79,7 +79,22 @@ class StudentsController extends AppController
     $point = '';
         foreach ($curent_term_info as $key) {
 
-        $point .= "<tr> <td> ".$key['MaHp']." </td> <td> ".$key['TenHp']." </td> <td> ".$key['QT']." </td> <td> ".$key['GK']." </td> <td> ".$key['TH']." </td> <td> ".$key['CK']." </td> <td> ".$key['DiemHP']." </td> </tr> ";
+          if($key['QT'] == null){
+            $key['QT'] = ' ';
+          }
+            if($key['GK'] == null){
+            $key['GK'] = ' ';
+          }
+            if($key['TH'] == null){
+            $key['TH'] = ' ';
+          }
+            if($key['CK'] == null){
+            $key['CK'] = ' ';
+          }
+
+        $point .= "<tr><td>".$key['MaHp']."</td><td>".$key['TenHp']."</td><td> ".$key['QT']." </td> ";
+        $point .= "<td> ".$key['GK']." </td> <td> ".$key['TH']." </td> ";
+        $point .= "<td> ".$key['CK']." </td> <td> ".$key['DiemHP']." </td></tr> ";
          }
 
     $foot_mess = $this->Template->emailFoot();
@@ -126,11 +141,11 @@ class StudentsController extends AppController
         $new_point->student_html_point = $point;
         $this->Students->save($new_point);
         
-       
-        $final_mess = $head_mess.$res.$foot_mess;
+ 
+       $final_mess = $head_mess.$res.$foot_mess;
        // $ret = $this->Point->htmlDiff($student_point->student_html_point, $point);
-   
-       //echo '<pre>'.$final_mess.'</pre>';
+  
+  //  echo '<pre>'.$final_mess.'</pre>';
        
          $email = new Email();
          $email->transport('gmail3');
@@ -140,7 +155,7 @@ class StudentsController extends AppController
               ->setHeaders(['Content-type' => 'text/html'])
               ->subject($subject)                  
               ->send($final_mess);
-     //   echo $student_point->student_email;
+       echo $student_point->student_email;
 
     }
 

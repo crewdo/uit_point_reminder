@@ -233,6 +233,8 @@ public function htmlDiff($old, $new){
         else $ret .= $k . ' ';
     }
     return $ret;
+
+    return $diff;
 }
 
       

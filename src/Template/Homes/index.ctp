@@ -256,42 +256,35 @@
 		<div class="container">
 
         <div class="row animatedParent">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
 				<div class="animated rotateInDownLeft">
                 <div class="service-box jmarginbot50">
-					<div class="service-icon">
+				<!-- 	<div class="service-icon">
 						<span class="fa fa-laptop fa-2x"></span> 
-					</div>
+					</div> -->
 					<div class="service-desc">						
 						<!-- <h5>Web Design</h5> -->
-						<div class="divider-header"></div>
+						<!-- <div class="divider-header"></div> -->
 						<img src="/point/home/img/register.jpg" width="100%">
-						<a href="#" class="btn btn-skin">Learn more</a>
+						
 					</div>
                 </div>
 				</div>
             </div>
-        </div>
-         <div class="row animatedParent">
-			<div class="col-xs-12 col-sm-12 col-md-12 ">
+			<div class="col-xs-12 col-sm-6 col-md-6 ">
 				<div class="animated rotateInDownLeft slow">
                 <div class="service-box jmarginbot50">
-					<div class="service-icon">
+				<!-- 	<div class="service-icon">
 						<span class="fa fa-camera fa-2x"></span> 
-					</div>
+					</div> -->
 					<div class="service-desc">
-						<h5>Photography</h5>
-						<div class="divider-header"></div>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Learn more</a>
+						<img src="/point/home/img/newpoint.jpg" width="100%">
 					</div>
                 </div>
 				</div>
             </div>
         </div>
-         <div class="row animatedParent">
+  <!--        <div class="row animatedParent">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="animated rotateInDownLeft slower">
                 <div class="service-box">
@@ -299,17 +292,12 @@
 						<span class="fa fa-code fa-2x"></span> 
 					</div>
 					<div class="service-desc">
-						<h5>Graphic design</h5>
-						<div class="divider-header"></div>
-						<p>
-						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
-						</p>
-						<a href="#" class="btn btn-skin">Learn more</a>
+						<img src="/point/home/img/reupdate-password.jpg" width="100%">
 					</div>
                 </div>
 				</div>
             </div>
-        </div>
+        </div> -->
 
         </div>		
 		</div>
