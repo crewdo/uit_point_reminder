@@ -329,62 +329,7 @@
 		</div>
 		</div>
 	</section>
-	<!-- /Section: services -->
 	
-
-	<!-- Section: works -->
-   <!--  <section id="works" class="home-section color-dark text-center bg-white">
-		<div class="container marginbot-50">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div>
-					<div class="animatedParent">
-					<div class="section-heading text-center">
-					<h2 class="h-bold animated bounceInDown">What we have done</h2>
-					<div class="divider-header"></div>
-					</div>
-					</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="container">
-
-            <div class="row animatedParent">
-                <div class="col-sm-12 col-md-12 col-lg-12" >
-
-                    <div class="row gallery-item">
-                        <div class="col-md-3 animated fadeInUp">
-							<a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3 animated fadeInUp slow">
-							<a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/2.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3 animated fadeInUp slower">
-							<a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/3.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-						<div class="col-md-3 animated fadeInUp">
-							<a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/4.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
-					</div>
-	
-                </div>
-            </div>	
-		</div>
-
-	</section> -->
-	<!-- /Section: works -->
-
 	<!-- Section: contact -->
    
  <section id="contact" class="home-section nopadd-bot color-dark bg-gray text-center">
@@ -409,19 +354,19 @@
 						<form id="contact-form">
 						<div class="row marginbot-20">
 							<div class="col-md-12 xs-marginbot-20">
-								<input type="email" class="form-control input-lg" placeholder="Nhập email của bạn" required="required" />
+								<input type="email" class="form-control input-lg " disabled="disabled" placeholder="Nhập email của bạn" required="required" />
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-										<input type="text" class="form-control input-lg" id="subject" placeholder="Tiêu đề" required="required" />
+										<input type="text" class="form-control input-lg disabled" disabled="disabled" id="subject" placeholder="Tiêu đề" required="required" />
 								</div>
 								<div class="form-group">
-									<textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
+									<textarea name="message" class="form-control" disabled="disabled" rows="4" cols="25" required="required"
 										placeholder="Tin nhắn..."></textarea>
 								</div>						
-								<button type="submit" class="btn btn-skin btn-lg btn-block" id="btnContactUs">
+								<button type="submit" class="btn btn-skin btn-lg btn-block" disabled="disabled"  id="btnContactUs">
 									Gửi vấn đề</button>
 							</div>
 						</div>

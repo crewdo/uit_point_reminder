@@ -167,6 +167,15 @@ class StudentsController extends AppController
     }
 
  }
+
+ public function reupdatePassword(){
+
+    $data = $this->request->getQueryParams();
+    $this->viewBuilder()->layout('home');
+    $student = $data['student_code'];
+    $this->set('student', $student);
+
+ }
     
 
 
