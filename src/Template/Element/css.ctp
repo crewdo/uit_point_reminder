@@ -6,6 +6,7 @@
         '/home/css/animations.css',
         '/home/css/style.css',
         '/home/color/default.css',
+        '/home/css/custombox.min.css',
         '/home/css/custom.css'
 
  )); ?>

@@ -1,3 +1,77 @@
+
+<!-- MODAL WAIT -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="modal-wait" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Đóng</span>
+
+                    </button>
+                     <p class="modal-title jed-modal-title-wait text-center" id="modal-status">Đang xác thực...</p>
+
+                </div>
+                <div class="modal-body" id="modal-body">
+                	<div class="progress">
+  <div class="progress-bar  progress-bar-striped active jed-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"  style="width: 100%"></div>
+</div>
+                </div>
+                <div class="modal-footer" style="text-align:center; font-size:15px">Chỉ một vài giây thôi...</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL SUCCESS -->
+
+<div class="modal fade" id="modal-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Đóng</span>
+
+                    </button>
+                     <p class="modal-title jed-modal-title-success text-center" id="modal-status">Đăng nhập thành công</p>
+
+                </div>
+                <div class="modal-body" id="modal-body">
+
+                	<div class="jed-modal-body">Hệ thống đã xác thực được tài khoản của bạn, cảm ơn bạn đã tin tưởng sử dụng hệ thống, một email sẽ được gửi qua email bạn đăng ký sau một vài phút nữa.</div>
+                </div>
+           <!--      <div class="modal-footer">
+                    
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL FAIL -->
+
+<div class="modal fade" id="modal-fail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Đóng</span>
+
+                    </button>
+                     <p class="modal-title jed-modal-title-fail text-center" id="modal-status">Đăng nhập thất bại</p>
+
+                </div>
+                <div class="modal-body" id="modal-body">
+                	<div class="jed-modal-body"> Xin lỗi, hệ thống không xác thực được tài khoản Daa của bạn, vui lòng kiểm tra lại thông tin.</div>
+           <!--      <div class="modal-footer">
+                    
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
 <section class="hero" id="intro">
             <div class="container">
               <div class="row">
@@ -15,7 +89,7 @@
               </div>
               <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                  <a href="#contact" class="learn-more-btn btn-scroll">Nhận Thông Báo</a>
+                  <a href="#login" class="learn-more-btn btn-scroll">Nhận Thông Báo</a>
                 </div>
               </div>
             </div>
@@ -46,9 +120,9 @@
                                                       <div class="collapse navbar-collapse" id="menu">
                                                             <ul class="nav navbar-nav navbar-right">
                                                                   <li class="active"><a href="#intro">Home</a></li>
-                                                                  <li><a href="#contact">Đăng nhập</a></li>
-																   <li><a href="#about">Giới thiệu</a></li>
-                                                                  <li><a href="#service">Góp ý</a></li>				                                                     
+                                                                  <li><a href="#login">Đăng nhập</a></li>
+																   <li><a href="#about">Về hệ thống</a></li>
+                                                                  <li><a href="#contact">Báo lỗi</a></li>				                                                     
                                                             </ul>
                                                       </div>
                                                       <!-- /.Navbar-collapse -->
@@ -60,7 +134,7 @@
                         </nav>
     </div> 
     <!-- /Navigation -->  
- <section id="contact" class="home-section nopadd-bot color-dark bg-gray text-center">
+ <section id="login" class="home-section nopadd-bot color-dark bg-gray text-center">
 		<div class="container marginbot-50">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
@@ -124,7 +198,7 @@
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="animatedParent">
 					<div class="section-heading text-center animated bounceInDown">
-					<h2 class="h-bold">About our bocor team</h2>
+					<h2 class="h-bold">Về hệ thống</h2>
 					<div class="divider-header"></div>
 					</div>
 					</div>
@@ -140,15 +214,18 @@
 		
 		
             <div class="col-lg-8 col-lg-offset-2 animatedParent">		
-				<div class="text-center">
+				<div class="">
 					<p>
-					Lorem ipsum dolor sit amet, vis tale malis tacimates et, graece doctus omnesque ne est, deserunt pertinacia ne nam. Pro eu simul affert referrentur, natum mutat erroribus te his
+					Cách hoạt động rất đơn giản, ai cũng có thể làm một cái, nhưng không ai thèm làm nên mình làm :)))
 					</p>
 					<p>
-					Ne mundi fabulas corrumpit vim, nulla vivendum conceptam eu nam. Ius ex principes complectitur, ex quo duis suscipit. Ius fastidii reprimique no. Sadipscing appellantur pri ad. Oratio moderatius definitiones cum ex, mea ne brute vivendum percipitur. 
+					Từ thông tin đăng nhập của các bạn, hệ thống sẽ truy xuất tới kết quả học tập, lưu lại thông tin. Thực hiện quá trình này 5 phút một lần, nếu có điểm mới cập nhật, hệ thống sẽ tìm ra điểm khác biệt, highlight nó lên và gửi một mail tới email các bạn đã đăng kí. Chỉ vậy thôi ^^
 					</p>
-					<a href="#service" class="btn btn-skin btn-scroll">What we do</a>
 				</div>
+				<div class="text-center">
+					<a href="#service" class="btn btn-skin btn-scroll">Xem screenshot</a>
+				</div>
+			
             </div>
 		
 
@@ -166,7 +243,7 @@
 				<div class="col-lg-8 col-lg-offset-2">
 					<div>
 					<div class="section-heading text-center">
-					<h2 class="h-bold">What we can do for you</h2>
+					<h2 class="h-bold">Screenshot</h2>
 					<div class="divider-header"></div>
 					</div>
 					</div>
@@ -239,7 +316,7 @@
 	
 
 	<!-- Section: works -->
-    <section id="works" class="home-section color-dark text-center bg-white">
+   <!--  <section id="works" class="home-section color-dark text-center bg-white">
 		<div class="container marginbot-50">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
@@ -288,7 +365,7 @@
             </div>	
 		</div>
 
-	</section>
+	</section> -->
 	<!-- /Section: works -->
 
 	<!-- Section: contact -->
@@ -299,7 +376,7 @@
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="animatedParent">
 					<div class="section-heading text-center">
-					<h2 class="h-bold animated bounceInDown">Đăng nhập</h2>
+					<h2 class="h-bold animated bounceInDown">Báo lỗi & góp ý</h2>
 					<div class="divider-header"></div>
 					</div>
 					</div>
@@ -314,24 +391,21 @@
 				<div class="col-md-8 col-md-offset-2">
 						<form id="contact-form">
 						<div class="row marginbot-20">
-							<div class="col-md-6 xs-marginbot-20">
-								<input type="text" class="form-control input-lg" id="massv" placeholder="Nhập MSSV" required="required" />
-							</div>
-							<div class="col-md-6">
-								<input type="password" class="form-control input-lg" id="password" placeholder="Nhập mật khẩu" required="required" />
+							<div class="col-md-12 xs-marginbot-20">
+								<input type="email" class="form-control input-lg" placeholder="Nhập email của bạn" required="required" />
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-										<input type="text" class="form-control input-lg" id="subject" placeholder="Subject" required="required" />
+										<input type="text" class="form-control input-lg" id="subject" placeholder="Tiêu đề" required="required" />
 								</div>
 								<div class="form-group">
 									<textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
-										placeholder="Message"></textarea>
+										placeholder="Tin nhắn..."></textarea>
 								</div>						
 								<button type="submit" class="btn btn-skin btn-lg btn-block" id="btnContactUs">
-									Xác nhận</button>
+									Gửi vấn đề</button>
 							</div>
 						</div>
 						</form>
@@ -346,13 +420,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<ul class="footer-menu">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Press release</a></li>
+					<ul class="footer-menu fontsize14">
+						<li><a href="#intro">Home</a></li>
+						<li><a href="#login">Đăng nhập</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6 text-right">
-					<p>&copy;Copyright 2014 - Bocor. <a href="http://bootstraptaste.com/">Bootstrap Themes</a> by BootstrapTaste</p>
+					<p>View on <a href="https://github.com/jed96/uit_point_reminder" target="_blank">GitHub</a></p>
                     <!-- 
                         All links in the footer should remain intact. 
                         Licenseing information is available at: http://bootstraptaste.com/license/

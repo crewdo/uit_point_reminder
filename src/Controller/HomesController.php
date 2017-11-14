@@ -82,7 +82,9 @@ class HomesController extends AppController
 
 
     public function authenticateAndSaveFirstData(){
+            
 
+        $this->viewBuilder()->layout('');
         //FLOW:
         // step 1: Get post data, crawl Daa => get respone at sinhvien/kqhoctap
         // step 2: Check respone, if fail return 0
@@ -93,29 +95,43 @@ class HomesController extends AppController
         $this->loadModel('Students');
         //Step1:
         $student = $this->request->data;
+         if($student['mssv']== null || $student['password']== null){
+            echo 0;
+            exit;
+        }
 
         //Step 2:
         $http = new Client([
-      'host' => 'daa.uit.edu.vn',
-      'scheme' => 'https',
-      'ssl_verify_peer' => false,
-      'ssl_verify_depth' => false,
-      'ssl_verify_host' => false
+          'host' => 'daa.uit.edu.vn',
+          'scheme' => 'https',
+          'ssl_verify_peer' => false,
+          'ssl_verify_depth' => false,
+          'ssl_verify_host' => false
+        ]);
 
-    ]);
-
-        $respone = $http->post('/sinhvien/kqhoctap',[ 'name' => $student['mssv'], 'pass' => $student['password']), 'form_build_id'=>'', 'form_id' => 'user_login_block' ]);
+        $respone = $http->post('/sinhvien/kqhoctap',[ 'name' => $student['mssv'], 'pass' => $student['password'], 'form_build_id'=>'', 'form_id' => 'user_login_block' ]);
         $respone = $http->get('/sinhvien/kqhoctap')->body();
 
-    
+        if(strpos($respone, 'Truy cập bị từ chối') !== false){
+            echo 0;
+            exit;
+        }
+        else {
 
-        // if ($this->request->is('post'))
-        // $student = $this->Students->newEntity();
-      
-        //     $student = $this->Students->patchEntity($student, $this->request->getData());
-        //     if ($this->Students->save($student)) {
+            // $new_student = $this->Students->newEntity();
+            // $new_student->student_code = $student['mssv'];
+            // $new_student->student_password = base64_encode($student['password']);
+            // if($student['mail'] != null){
+            //     $new_student->student_email = $student['mail'];
+            // }
+            // else $new_student->student_email = $student['mssv'].'@gm.uit.edu.vn';
+            // $new_student->student_html_point = '';
+            // if ($this->Students->save($new_student)) {
 
-                
-        //     }    }
+                echo 1;
+        // }
+    }
+
+
     }
 }

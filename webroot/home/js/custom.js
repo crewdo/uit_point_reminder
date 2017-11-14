@@ -81,14 +81,38 @@
         else{
         	 $('.extra').hide();
         	 $('#email_textbox').removeAttr('required');
+        	 $('#email_textbox').val('');
         }
     });
 
-		jQuery(document).on('click', '#btnSubmit', function(){
-		var mssv = $('#massv').val();
-		var password = $('#password').val();
+		
 
+		jQuery(document).on('click', '#btnSubmit', function(){
+
+		$('#modal-wait').modal('show');
+		var mssv = $('#mssv').val();
+		var password = $('#password').val();
+		var other_mail = $('#email_textbox').val();
+		$.ajax({
+			url: 'ajax/authenticate',
+			type: 'POST',
+			data: {mssv: mssv, password: password, mail: other_mail},
+			success: function(data){
+				if(data == 1){
+					$('#modal-wait').modal('hide');
+					$('#modal-success').modal('show');
+				}
+				else{
+					$('#modal-wait').modal('hide');
+					$('#modal-fail').modal('show');
+				}
+			}
+		});
+		
 		
 		//do Ajax
 		});
+
+
+
 		});

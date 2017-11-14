@@ -93,8 +93,70 @@
 .magic-radio:checked[disabled] + label:after {
   background: #c9e2f9; }
 
-  
-/*
-  .extra{
-    display: none;
-  }*/
+.modal-header{
+  height: 20px !important;
+  border: none !important;
+}
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none;
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+ max-width:inherit; /* For Bootstrap 4 - to avoid the modal window stretching full width */
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events:all;
+}
+
+.progress{
+
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.modal-content{
+  border-radius: 0px;
+}
+.jed-bar{
+   border-radius: 0px;
+}
+
+.jed-modal-title-fail{
+  font-size: 18px !important;
+  font-weight: bold;
+  color: #ff2f2f;
+}
+.jed-modal-title-success{
+  font-size: 18px !important;
+  font-weight: bold;
+  color: #09908b;
+}
+.jed-modal-title-wait{
+  font-size: 18px !important;
+  font-weight: bold;
+  color: #406cd4;
+}
+.jed-modal-body{
+  font-size: 15px;
+   margin-top: 10px;
+    margin-bottom: 10px;
+}
+.paddingtop40{
+  padding-top: 40px !important;
+}
+ul.footer-menu li a{
+  font-size: 14px !important;
+}

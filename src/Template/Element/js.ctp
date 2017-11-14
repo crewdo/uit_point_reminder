@@ -8,6 +8,8 @@
             '/home/js/stellar.js',
             '/home/js/nivo-lightbox.min.js',
             '/home/js/custom.js',
+            '/home/js/custombox.min.js',
+            '/home/js/custombox.legacy.min.js',
             '/home/js/css3-animate-it.js'	
 
  )); ?>
