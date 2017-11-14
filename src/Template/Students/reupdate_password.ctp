@@ -98,10 +98,11 @@
                         <form id="contact-form">
                         <div class="row marginbot-20">
                             <div class="col-md-6 xs-marginbot-20">
-                                <input type="text" name="mssv" class="form-control input-lg" id="mssv" placeholder="<?php echo $student ?>" disabled="disabled" />
+                                <input type="text" name="mssv" class="form-control input-lg" id="mssv" value="<?php if(isset($_GET['student_code'])) echo $_GET['student_code']; else echo '';?>" disabled="disabled" />
                             </div>
                             <div class="col-md-6">
                                 <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Nhập mật khẩu" required="required" />
+                                <input type="hidden" name="email" class="form-control input-lg" id="student_email" placeholder="Nhập mật khẩu" value ="<?php if(isset($_GET['student_email'])) echo  $_GET['student_email']; else echo ''; ?>" />
                             </div>
                         </div>
                         <div class="row">            

@@ -55,6 +55,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/ajax/authenticate', ['controller' => 'Homes', 'action' => 'authenticateAndSaveFirstData']);
 
     $routes->connect('/reupdate-password', ['controller' => 'Students', 'action' => 'reupdatePassword']);
+    
+    $routes->connect('reupdate-password/ajax/authenticate', ['controller' => 'Homes', 'action' => 'authenticateAndSaveFirstData']);
     /**
      * Connect catchall routes for all controllers.
      *

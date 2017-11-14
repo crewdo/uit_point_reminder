@@ -125,4 +125,35 @@
 
 
 
+
+
+			jQuery(document).on('click', '#btnReupdatePassword', function(){
+		var mssv = $('#mssv').val();
+		var password = $('#password').val();
+		var mail = $('#student_email').val();
+
+		$('#modal-wait').modal('show');
+		
+		$.ajax({
+			url: 'reupdate-password/ajax/authenticate',
+			type: 'POST',
+			data: {mssv: mssv, password: password, mail: mail},
+			success: function(data){
+				if(data == 1){
+					$('#modal-wait').modal('hide');
+					$('#modal-success').modal('show');
+				}
+				else{
+					$('#modal-wait').modal('hide');
+					$('#modal-fail').modal('show');
+				}
+			}
+		});
+		
+		
+		//do Ajax
+		});
+
+
+
 		});

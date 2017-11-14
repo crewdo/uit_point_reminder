@@ -158,7 +158,7 @@ class StudentsController extends AppController
               ->setHeaders(['Content-type' => 'text/html'])
               ->subject($subject)                  
               ->send($final_mess);
-       echo $student_point->student_email;
+      // echo $student_point->student_email;
 
     }
 
@@ -170,13 +170,9 @@ class StudentsController extends AppController
 
  public function reupdatePassword(){
 
-    $data = $this->request->getQueryParams();
     $this->viewBuilder()->layout('home');
-    $student = $data['student_code'];
-    $this->set('student', $student);
 
  }
-    
 
 
 }
