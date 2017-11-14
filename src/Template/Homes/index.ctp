@@ -72,6 +72,31 @@
 </div>
 
 
+
+<div class="modal fade" id="modal-email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Đóng</span>
+
+                    </button>
+                     <p class="modal-title jed-modal-title-fail text-center" id="modal-status">Kiểm tra lại email</p>
+
+                </div>
+                <div class="modal-body" id="modal-body">
+                	<div class="jed-modal-body"> Có vẻ như bạn đã nhập vào một email không đúng định dạng, vui lòng thử lại</div>
+           <!--      <div class="modal-footer">
+                    
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
 <section class="hero" id="intro">
             <div class="container">
               <div class="row">
@@ -237,7 +262,8 @@
 	
 	
 	<!-- Section: services -->
-    <section id="service" class="home-section color-dark bg-gray">
+    <section id="service" class="home-section color-dark bg-gray" 
+    style = "padding-bottom: 0px;">
 		<div class="container marginbot-50">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">

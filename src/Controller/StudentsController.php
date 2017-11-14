@@ -91,6 +91,9 @@ class StudentsController extends AppController
             if($key['CK'] == null){
             $key['CK'] = ' ';
           }
+              if($key['DiemHP'] == null){
+            $key['DiemHP'] = ' ';
+          }
 
         $point .= "<tr><td>".$key['MaHp']."</td><td>".$key['TenHp']."</td><td> ".$key['QT']." </td> ";
         $point .= "<td> ".$key['GK']." </td> <td> ".$key['TH']." </td> ";

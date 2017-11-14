@@ -86,13 +86,23 @@
     });
 
 		
-
+		 function validateEmail($email) {
+ 		 var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ 		 return emailReg.test( $email );
+	}
 		jQuery(document).on('click', '#btnSubmit', function(){
-
-		$('#modal-wait').modal('show');
 		var mssv = $('#mssv').val();
 		var password = $('#password').val();
 		var other_mail = $('#email_textbox').val();
+
+		if(!validateEmail(other_mail)){
+
+			$('#modal-email').modal('show');
+			return 0;
+
+		}
+		$('#modal-wait').modal('show');
+		
 		$.ajax({
 			url: 'ajax/authenticate',
 			type: 'POST',
