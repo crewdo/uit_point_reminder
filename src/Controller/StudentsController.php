@@ -41,11 +41,32 @@ class StudentsController extends AppController
     $respone = $http->post('/sinhvien/kqhoctap',[ 'name' => $student_point->student_code, 'pass' => base64_decode($student_point->student_password), 'form_build_id'=>'', 'form_id' => 'user_login_block' ]);
 
     $respone = $http->get('/sinhvien/kqhoctap')->body();
+    
+    //Nếu không đăng nhập được => mật khẩu đã bị đổi, xóa record và gửi mail yêu cầu cập nhật lại.
+    if(strpos($respone, 'Truy cập bị từ chối') !== false){
+            //Sendmail
+               $fail_head_mess = $this->Template->failMess();
+               $fail_foot_mess = $this->Template->emailFoot();
+               $fail_mess = $fail_head_mess."<div style = 'margin-top: 20px; margin-bottom: 20px; line-height: 150%'><b>Có vẻ như bạn đã thay đổi mật khẩu trên Daa rồi, hãy nhấp vào <a href=http://uiter.xyz/reupdate-password/?student_code=".$student_point->student_code."><ins style='color: #6382bd'>đây<ins></a> để cập nhật lại mật khẩu cho hệ thống thông báo điểm. Cám ơn bạn!</b></div>".$fail_foot_mess;
+               $email = new Email();
+               $email->transport('gmail3');
+               $subject='Đăng nhập thất bại '.date('d-m-Y');
+               $email->from(['ngoclazy719@gmail.com' => 'UIT Point Reminder'])
+              ->to($student_point->student_email)
+              ->setHeaders(['Content-type' => 'text/html'])
+              ->subject($subject)                  
+              ->send($fail_mess);
 
+            $student_delete = $this->Students->get($student_point->id);
+            $this->Students->delete($student_delete);
+            continue;
+        }
+    else{
 
-    $curent_term_info = $this->Point->getTermInfo($respone);
+       $curent_term_info = $this->Point->getTermInfo($respone);
+       $respone = $http->post('/user/logout');
+    }
 
-    $respone = $http->post('/user/logout');
 
     if(is_array($curent_term_info) == false)
     {
@@ -74,7 +95,7 @@ class StudentsController extends AppController
          $email = new Email();
          $email->transport('gmail3');
          $subject='Thông báo đăng kí nhận thông báo điểm từ Daa thành công';
-         $mess_first = "<div style = 'margin-top: 20px; margin-bottom: 20px'><b>Cám ơn bạn đã tin tưởng sử dụng hệ thống báo điểm của chúng tôi! <br> Bạn sẽ nhận được bảng điểm mới qua email này khi có điểm vừa cập nhật!</b></div>";
+         $mess_first = "<div style = 'margin-top: 20px; margin-bottom: 20px; line-height: 150%;'><b>Cám ơn bạn đã tin tưởng sử dụng hệ thống báo điểm của chúng tôi! <br> Bạn sẽ nhận được bảng điểm mới qua email này khi có điểm vừa cập nhật!</b></div>";
 
          $mess_ok = $head_first_mess.$mess_first.$foot_mess;
          $email->from(['ngoclazy719@gmail.com' => 'UIT Point Reminder'])

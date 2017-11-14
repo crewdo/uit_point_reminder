@@ -116,20 +116,28 @@ class HomesController extends AppController
             echo 0;
             exit;
         }
+        //Step 3:
         else {
 
-            // $new_student = $this->Students->newEntity();
-            // $new_student->student_code = $student['mssv'];
-            // $new_student->student_password = base64_encode($student['password']);
-            // if($student['mail'] != null){
-            //     $new_student->student_email = $student['mail'];
-            // }
-            // else $new_student->student_email = $student['mssv'].'@gm.uit.edu.vn';
-            // $new_student->student_html_point = '';
-            // if ($this->Students->save($new_student)) {
+            $student_existing = $this->Students->find()->where(['student_code' => $student['mssv']])->first();
+            if($student_existing){
+                $new_or_update_student = $this->Students->get($student_existing->id);
+            }
+            else
+            $new_or_update_student = $this->Students->newEntity();
+
+
+            $new_or_update_student->student_code = $student['mssv'];
+            $new_or_update_student->student_password = base64_encode($student['password']);
+                 if($student['mail'] != null){
+                    $new_or_update_student->student_email = $student['mail'];
+                }
+                else $new_or_update_student->student_email = $student['mssv'].'@gm.uit.edu.vn';
+            $new_or_update_student->student_html_point = '';
+            if ($this->Students->save($new_or_update_student)) {
 
                 echo 1;
-        // }
+        }
     }
 
 
