@@ -51,12 +51,15 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
 
     $routes->connect('/', ['controller' => 'Homes', 'action' => 'index']);
-    $routes->connect('pointinfo', ['controller' => 'Students', 'action' => 'showPoint']);
+    $routes->connect('cron/update/uitpoint/infomation', ['controller' => 'Students', 'action' => 'showPoint']);
     $routes->connect('/ajax/authenticate', ['controller' => 'Homes', 'action' => 'authenticateAndSaveFirstData']);
 
     $routes->connect('/reupdate-password', ['controller' => 'Students', 'action' => 'reupdatePassword']);
     
     $routes->connect('reupdate-password/ajax/authenticate', ['controller' => 'Homes', 'action' => 'authenticateAndSaveFirstData']);
+
+
+    $routes->connect('testfb', ['controller' => 'Homes', 'action' => 'testFb']);
     /**
      * Connect catchall routes for all controllers.
      *

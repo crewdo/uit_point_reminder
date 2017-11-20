@@ -142,4 +142,10 @@ class HomesController extends AppController
 
 
     }
+    public function testFb(){
+
+           // $a = $this->Crawl->crawlRequest('https://graph.facebook.com/147120022688314_157509568316026//comments?method=post&message=hahaha&access_token=EAACEdEose0cBABDr73InIRZA5vE8LZC3rQ8iJY68AZB049GsP6aEuZABWskyvapydthqzi1zWrOTZAqKzT3bB2rE5cQU5q89AFYEsDYT14Nv8FqxdzscT3ufgyvJhPP5uhtYqrA6GWqk9vBuWZCQwp0hGQXGe39NArUXNJDmdt8BzafwYYkFRAO6GIQJUuIZA8qbXrZCc2pA7QZDZD');
+
+           // echo $a;
+    }
 }
